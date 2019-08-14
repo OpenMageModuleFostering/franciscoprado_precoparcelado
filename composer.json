@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/FranciscoPrado_PrecoParcelado",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Extensão para exibir o preço do produto em parcelas.",
+    "authors": [
+    {
+        "name": "Francisco Prado",
+        "email": "franciscontato@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
