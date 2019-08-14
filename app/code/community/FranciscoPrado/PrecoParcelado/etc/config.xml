@@ -2,7 +2,7 @@
 <config>
     <modules>
         <FranciscoPrado_PrecoParcelado>
-            <version>1.0.0.0</version>
+            <version>1.1.0.1</version>
         </FranciscoPrado_PrecoParcelado>
     </modules>
     <global>
@@ -68,6 +68,7 @@
                 <use_compound>1</use_compound>
                 <text_pattern>ou em {parcelas} vezes de {preco}</text_pattern>
                 <text_table_pattern>{parcelas}x de</text_table_pattern>
+		<add_jquery>0</add_jquery>
             </franciscoprado_precoparcelado> 
         </sales>
     </default>

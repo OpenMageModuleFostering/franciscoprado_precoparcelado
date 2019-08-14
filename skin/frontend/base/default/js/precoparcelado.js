@@ -15,7 +15,7 @@ $pp(document).ready(function() {
     };
 
     var getSimpleInterest = function(value, interest, parcels) {
-        interest = interest / 100;
+	interest = interest / 100;
         var m = value * (1 + interest * parcels);
         var parcelValue = m / parcels;
 
@@ -23,10 +23,10 @@ $pp(document).ready(function() {
     };
 
     var getCompoundInterest = function(value, interest, parcels) {
-        interest = interest / 100;
+	interest = interest / 100;
         var parcelValue = value * Math.pow((1 + interest), parcels);
         var parcelValue = parcelValue / parcels;
-
+	
         return parcelValue;
     };
 
@@ -74,8 +74,7 @@ $pp(document).ready(function() {
         var ppCurrencyFormat = optionsPrice.priceFormat.pattern.replace('%s', '');
         var ppDecimalSymbol = optionsPrice.priceFormat.decimalSymbol;
         var ppGroupSymbol = optionsPrice.priceFormat.groupSymbol;
-        var ppCurrent = new Number(
-                ppTotalPrice.replace(ppCurrencyFormat, '').replace(ppDecimalSymbol, '.').replace(ppGroupSymbol, ''));
+        var ppCurrent = parseFloat(ppTotalPrice.replace(ppCurrencyFormat, '').replace(ppGroupSymbol, '').replace(ppDecimalSymbol, ','));
 
         getPrice(ppCurrent);
     };

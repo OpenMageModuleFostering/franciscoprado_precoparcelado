@@ -8,13 +8,6 @@
                 <params><![CDATA[media="all"]]></params>
             </action>
         </reference>
-        <reference name="head">
-            <action method="addItem">
-                <type>skin_js</type>
-                <script>js/precoparcelado.js</script>
-                <params><![CDATA[name="precoparcelado"]]></params>
-            </action>
-        </reference>
         <reference name="product.info.extrahint">
             <block type="core/template" name="precoparcelado.table" template="precoparcelado/table.phtml" before="-" />
         </reference>

@@ -12,7 +12,8 @@ class FranciscoPrado_PrecoParcelado_Helper_Data extends Mage_Core_Helper_Abstrac
     const XML_PATH_USE_COMPOUND = 'sales/franciscoprado_precoparcelado/use_compound';
     const XML_PATH_TEXT_PATTERN = 'sales/franciscoprado_precoparcelado/text_pattern';
     const XML_PATH_TABLE_TEXT_PATTERN = 'sales/franciscoprado_precoparcelado/text_table_pattern';
-
+    const XML_PATH_ADD_JQUERY = 'sales/franciscoprado_precoparcelado/add_jquery';
+    
     public function isModuleEnabled($moduleName = null) {
         if ((int) Mage::getStoreConfig(self::XML_PATH_ACTIVE, Mage::app()->getStore()) != 1) {
             return false;
@@ -41,7 +42,7 @@ class FranciscoPrado_PrecoParcelado_Helper_Data extends Mage_Core_Helper_Abstrac
     }
 
     public function getInterest($store = null) {
-        return (int) Mage::getStoreConfig(self::XML_PATH_INTEREST_VALUE, $store);
+        return (float) Mage::getStoreConfig(self::XML_PATH_INTEREST_VALUE, $store);
     }
 
     public function useCompound($store = null) {
@@ -54,6 +55,10 @@ class FranciscoPrado_PrecoParcelado_Helper_Data extends Mage_Core_Helper_Abstrac
 
     public function getTableText($store = null) {
         return Mage::getStoreConfig(self::XML_PATH_TABLE_TEXT_PATTERN, $store);
+    }
+
+    public function addJquery($store = null) {
+        return Mage::getStoreConfig(self::XML_PATH_ADD_JQUERY, $store);
     }
 
     public function getSimpleInterest($value, $interest, $parcels) {

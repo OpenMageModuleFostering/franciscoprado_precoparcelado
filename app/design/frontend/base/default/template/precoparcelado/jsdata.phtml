@@ -11,7 +11,8 @@ $useCompound = Mage::helper('franciscoprado_precoparcelado')->useCompound();
 $interest = Mage::helper('franciscoprado_precoparcelado')->getInterest();
 $text = Mage::helper('franciscoprado_precoparcelado')->getText();
 $tableText = Mage::helper('franciscoprado_precoparcelado')->getTableText();
-
+$addJquery = Mage::helper('franciscoprado_precoparcelado')->addJquery();
+	
 if ($isActive): ?>
 <script>
     /* preco parcelado */
@@ -24,4 +25,10 @@ if ($isActive): ?>
     var ppTableText = '<?php echo $tableText ?>';
     var ppId = '<?php echo Mage::registry('current_product')->getId() ?>';
 </script>
+    <?php
+    if ($addJquery):
+    ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <?php endif; ?>
+<script src="<?php echo $this->getSkinUrl('js/precoparcelado.js') ?>"></script>
 <?php endif; ?>

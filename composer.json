@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
-    "description": "Extensão para exibir o preço do produto em parcelas.",
+    "description": "Módulo para mostrar o preço do produto em forma de parcelas, que é um tipo de pagamento comum no Brasil.",
     "authors": [
     {
         "name": "Francisco Prado",
