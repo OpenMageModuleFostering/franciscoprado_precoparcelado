@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package>
     <name>FranciscoPrado_PrecoParcelado</name>
-    <version>1.1.0.1</version>
+    <version>2.0.0.2</version>
     <stability>stable</stability>
     <license>OSL v3.0</license>
     <channel>community</channel>
     <extends/>
     <summary>M&#xF3;dulo para mostrar o pre&#xE7;o do produto em forma de parcelas, que &#xE9; um tipo de pagamento comum no Brasil.</summary>
-    <description>Com esta extens&#xE3;o &#xE9; poss&#xED;vel voc&#xEA; mostrar o pre&#xE7;o parcelado do seu produto. Atrav&#xE9;s do painel de administra&#xE7;&#xE3;o &#xE9; poss&#xED;vel configurar os modos de exibi&#xE7;&#xE3;o (tabela de parcelas ou em texto espec&#xED;fico), n&#xFA;mero de meses, valor do juros, juro simples ou composto, parcela m&#xED;nima, entre outros.</description>
-    <notes>Terceira vers&#xE3;o est&#xE1;vel.</notes>
+    <description>M&#xF3;dulo para mostrar o pre&#xE7;o do produto em forma de parcelas, que &#xE9; um tipo de pagamento comum no Brasil.</description>
+    <notes>Corre&#xE7;&#xE3;o no modo de c&#xE1;lculo, que passa a usar somente a tabela Price.</notes>
     <authors><author><name>Francisco Prado</name><user>fr_prado</user><email>franciscontato@gmail.com</email></author></authors>
-    <date>2014-08-06</date>
-    <time>12:00:39</time>
-    <contents><target name="magecommunity"><dir name="FranciscoPrado"><dir name="PrecoParcelado"><dir name="etc"><file name="config.xml" hash="b3848abc429b5560a7613f7936fc6fd5"/><file name="system.xml" hash="dcf2d6a5c24cb16d191a96eb04ceb0b9"/></dir><dir name="Helper"><file name="Data.php" hash="5b7d4cccefd84b8f1095179ea7120cb4"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="franciscoprado_precoparcelado.xml" hash="2e78e3b82b16ca71f4f678ae89c6930e"/></dir><dir name="template"><dir name="precoparcelado"><file name="jsdata.phtml" hash="c1cbd480b4839ac5681d58f7090f46f9"/><file name="table.phtml" hash="5375174d15dc910bf48cff5f55c88eed"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="FranciscoPrado_PrecoParcelado.xml" hash="ff2352dd5dcf370b98b77782ac230e5f"/></dir></target><target name="magelocale"><dir name="pt_BR"><file name="FranciscoPrado_PrecoParcelado.csv" hash="20d484ae51b10f0bda926502b383a61d"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><file name="precoparcelado.css" hash="8b127443908efc0529ff9953e4d1402e"/></dir><dir name="js"><file name="precoparcelado.js" hash="ea630f0ab4b7be6efc08cb40150194b7"/></dir></dir></dir></dir></target></contents>
+    <date>2014-10-13</date>
+    <time>20:59:48</time>
+    <contents><target name="mageetc"><dir><dir name="modules"><file name="FranciscoPrado_PrecoParcelado.xml" hash="ff2352dd5dcf370b98b77782ac230e5f"/></dir></dir></target><target name="magedesign"><dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="precoparcelado"><file name="jsdata.phtml" hash="7c05341c50664fc28ee9b5027e5bcc5e"/><file name="table.phtml" hash="66c9a9bd9785ed6fb2689b70b2c8e3c8"/></dir></dir><dir name="layout"><file name="franciscoprado_precoparcelado.xml" hash="2e78e3b82b16ca71f4f678ae89c6930e"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir><dir name="pt_BR"><file name="FranciscoPrado_PrecoParcelado.csv" hash="20d484ae51b10f0bda926502b383a61d"/></dir></dir></target><target name="mageskin"><dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="js"><file name="precoparcelado.js" hash="9d048b9ee02ef4b9c62b0d0c2b8bb846"/></dir><dir name="css"><file name="precoparcelado.css" hash="8b127443908efc0529ff9953e4d1402e"/></dir></dir></dir></dir></dir></target><target name="magecommunity"><dir><dir name="FranciscoPrado"><dir name="PrecoParcelado"><dir><dir name="etc"><file name="config.xml" hash="a5c1038b7b7d39a14e7f8142faedb2fd"/><file name="system.xml" hash="7adf1173acb4fe428b02d088bac35ec8"/></dir><dir name="Helper"><file name="Data.php" hash="86b19fe600259fbef62975e04115f9b4"/></dir></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

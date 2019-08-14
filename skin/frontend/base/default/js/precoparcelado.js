@@ -4,30 +4,31 @@ $pp(document).ready(function() {
 
     Number.prototype.formatMoney = function(c, d, t) {
         var n = this,
-            c = isNaN(c = Math.abs(c)) ? 2 : c,
-            d = d == undefined ? "." : d,
-            t = t == undefined ? "," : t,
-            s = n < 0 ? "-" : "",
-            i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-            j = (j = i.length) > 3 ? j % 3 : 0;
-        
+                c = isNaN(c = Math.abs(c)) ? 2 : c,
+                d = d == undefined ? "." : d,
+                t = t == undefined ? "," : t,
+                s = n < 0 ? "-" : "",
+                i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
+                j = (j = i.length) > 3 ? j % 3 : 0;
+
         return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
     };
 
-    var getSimpleInterest = function(value, interest, parcels) {
-	interest = interest / 100;
-        var m = value * (1 + interest * parcels);
-        var parcelValue = m / parcels;
+    var getParcelsValue = function(value, interest, parcels) {
+        interest = interest / 100;
+        var E = 1.0;
+        var cont = 1.0;
 
-        return parcelValue;
-    };
+        for (var i = 1; i <= parcels; i++)
+        {
+            cont = cont * (interest + 1);
+            E = E + cont;
+        }
+        
+        E = E - cont;
 
-    var getCompoundInterest = function(value, interest, parcels) {
-	interest = interest / 100;
-        var parcelValue = value * Math.pow((1 + interest), parcels);
-        var parcelValue = parcelValue / parcels;
-	
-        return parcelValue;
+        parcel = value * cont;
+        return parcel / E;
     };
 
     var getPrice = function(value) {
@@ -38,21 +39,17 @@ $pp(document).ready(function() {
             var ppGroupSymbol = optionsPrice.priceFormat.groupSymbol;
             var finalText = '';
             var tableText = '';
-            
+
             for (var i = 2; i <= maxNumberMonths; i++) {
                 var parcel = 0;
 
-                if (useCompound) {
-                    parcel = getCompoundInterest(value, interest, i);
-                } else {
-                    parcel = getSimpleInterest(value, interest, i);
-                }
+                parcel = getParcelsValue(value, interest, i);
 
                 if (parcel >= minParcel) {
                     var parcelToCurrency = ppCurrencyFormat + (parcel).formatMoney(2, ppDecimalSymbol, ppGroupSymbol);
                     finalText = ppText.replace('{preco}', parcelToCurrency);
                     finalText = finalText.replace('{parcelas}', i);
-                    
+
                     if (showTable) {
                         tableText += '<tr>';
                         tableText += '<td>' + ppTableText.replace('{parcelas}', i) + '</td>';
@@ -61,7 +58,7 @@ $pp(document).ready(function() {
                     }
                 }
             }
-            
+
             $pp('.precoparcelado-parcels').html(finalText);
             $pp('.precoparcelado-table tbody').html(tableText);
         }
@@ -70,15 +67,36 @@ $pp(document).ready(function() {
     };
 
     var onPriceChange = function(e) {
-        var ppTotalPrice = $pp('#product-price-' + ppId + ' span').html();
-        var ppCurrencyFormat = optionsPrice.priceFormat.pattern.replace('%s', '');
-        var ppDecimalSymbol = optionsPrice.priceFormat.decimalSymbol;
-        var ppGroupSymbol = optionsPrice.priceFormat.groupSymbol;
-        var ppCurrent = parseFloat(ppTotalPrice.replace(ppCurrencyFormat, '').replace(ppGroupSymbol, '').replace(ppDecimalSymbol, ','));
+        var price = optionsPrice.productPrice;
 
-        getPrice(ppCurrent);
+        // if is configurable product
+        if (typeof spConfig !== 'undefined') {
+            for (key in optionsPrice.optionPrices.config) {
+                if (key == 'price') {
+                    price += optionsPrice.optionPrices.config['price'];
+                }
+            }
+        }
+        else {
+            for (key in optionsPrice.customPrices) {
+                price += optionsPrice.customPrices[key].price;
+            }
+        }
+
+        getPrice(price);
     };
 
-    $pp('*[name^=super_attribute], *[name^=options]').on('change', onPriceChange);
+    // add the 'change' event listener for each configurable option
+    // if is configurable product
+    if (typeof spConfig !== 'undefined') {
+        for (var i = 0; i < spConfig.settings.length; i++) {
+            $pp('#' + spConfig.settings[i].id).on('change', onPriceChange);
+        }
+    }
+    else {
+        for (id in optionsPrice.customPrices) {
+            $pp('#' + id).on('change', onPriceChange);
+        }
+    }
 
 });

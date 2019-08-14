@@ -7,19 +7,17 @@ $isActive = $helper->isModuleEnabled();
 $showTable = $helper->showTable();
 $minParcel = Mage::helper('franciscoprado_precoparcelado')->getMinParcelValue();
 $maxNumberMonths = Mage::helper('franciscoprado_precoparcelado')->getMaxNumberMonths();
-$useCompound = Mage::helper('franciscoprado_precoparcelado')->useCompound();
 $interest = Mage::helper('franciscoprado_precoparcelado')->getInterest();
 $text = Mage::helper('franciscoprado_precoparcelado')->getText();
 $tableText = Mage::helper('franciscoprado_precoparcelado')->getTableText();
 $addJquery = Mage::helper('franciscoprado_precoparcelado')->addJquery();
-	
+
 if ($isActive): ?>
 <script>
     /* preco parcelado */
     var showTable = <?php echo $showTable ? 'true' : 'false'; ?>;
     var minParcel = <?php echo $minParcel ?>;
     var maxNumberMonths = <?php echo $maxNumberMonths ?>;
-    var useCompound = <?php echo $useCompound ? 'true' : 'false' ?>;
     var interest = <?php echo $interest ?>;
     var ppText = '<?php echo $text ?>';
     var ppTableText = '<?php echo $tableText ?>';

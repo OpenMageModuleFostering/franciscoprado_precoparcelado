@@ -2,7 +2,7 @@
 <config>
     <modules>
         <FranciscoPrado_PrecoParcelado>
-            <version>1.1.0.1</version>
+            <version>2.0.0.2</version>
         </FranciscoPrado_PrecoParcelado>
     </modules>
     <global>
@@ -59,13 +59,12 @@
         <sales>
             <franciscoprado_precoparcelado>
                 <active>1</active>
-                <show_table>1</show_table>
+                <show_table>0</show_table>
                 <table_title>Valor das Parcelas</table_title>
                 <show_price_in_parcels>1</show_price_in_parcels>
                 <min_quote_value>50</min_quote_value>
                 <max_number_months>12</max_number_months>
                 <interest_value>1</interest_value>
-                <use_compound>1</use_compound>
                 <text_pattern>ou em {parcelas} vezes de {preco}</text_pattern>
                 <text_table_pattern>{parcelas}x de</text_table_pattern>
 		<add_jquery>0</add_jquery>
