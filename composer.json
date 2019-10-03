@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/FranciscoPrado_PrecoParcelado",
+    "name": "OpenMageModuleFostering\/FranciscoPrado_PrecoParcelado",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
-    "description": "Módulo para mostrar o preço do produto em forma de parcelas, que é um tipo de pagamento comum no Brasil.",
+    "description": "M\u00f3dulo para mostrar o pre\u00e7o do produto em forma de parcelas, que \u00e9 um tipo de pagamento comum no Brasil.",
     "authors": [
-    {
-        "name": "Francisco Prado",
-        "email": "franciscontato@gmail.com"
-    }
-],
+        {
+            "name": "Francisco Prado",
+            "email": "franciscontato@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
